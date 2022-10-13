@@ -43,23 +43,26 @@ function App() {
 
   return (
     <div>
-      <div>
-        <div>Read uid:</div>
+      <center style={{marginTop:"4rem"}}>
+        <div style={{fontSize:"3rem"}}>Insert into table</div>
+        <div>uid:</div>
+        <input type="text" onChange={uidHandler} />
+        <div>name:</div>
+        <input type="text" onChange={nameHandler} />
+        <br/>
+        <button onClick={addToTable}>Insert</button>
+        <div>{payload2}</div>
+      </center>
+
+      <center style={{marginTop:"4rem"}}>
+        <div style={{fontSize:"3rem"}}>Read from table</div>
+        <div>uid:</div>
         <input type="text" onChange={(e)=>setReadUid(e.target.value)} />
+        <br/>
         <button onClick={readHandler}>Read</button>
         <div>{payload}</div>
-        
-      </div>
-        <div style={{marginTop:"4rem"}}>
-          <div>uid</div>
-          <input type="text" onChange={uidHandler} />
-          <div>name</div>
-          <input type="text" onChange={nameHandler} />
-          <button onClick={addToTable}>Submit</button>
-          <div>{payload2}</div>
-        </div>
+      </center>
     </div>
-    
   );
 }
 

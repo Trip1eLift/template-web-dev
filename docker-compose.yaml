@@ -1,4 +1,4 @@
-# Docs: https://geshan.com.np/blog/2021/12/docker-postgres/
+# Docs: https://geshan.com.np/blog/2021/12/docker-postgres/ -> might have a way to run seed.sql
 version: '3.8'
 services:
   frontend:
@@ -24,6 +24,13 @@ services:
       - /app/node_modules
     depends_on:
       - postgres
+    links:
+      - postgres
+    environment:
+      - DB_USER=postgres
+      - DB_HOST=postgres # container name of database (docker-compose networking)
+      - DB_PASS=postgres
+      - DB_PORT=5432
   postgres:
     container_name: postgres
     image: postgres:14.1-alpine
@@ -35,6 +42,7 @@ services:
       - 5432:5432
     volumes:
       - postgres:/var/lib/postgresql/data
+      - ./database/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
 volumes:
   frontend:
     driver: local

@@ -10,21 +10,20 @@ app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb'}));
 
 const postgres_credentials = {
-    user: "postgres",
-    host: "localhost",
-    password: "postgres",
-    port: 5432,
+    user:     process.env.DB_USER || "postgres",
+    host:     process.env.DB_HOST || "localhost",
+    password: process.env.DB_PASS || "postgres",
+    port:     process.env.DB_PORT || 5432,
 };
 
 app.get("/health", (request, response) => {
     console.log("Health check endpoint reached.");
     response.send("Healthy");
 });
-// 127.0.0.1
-// 0.0.0.0
 
-// pg doc: https://node-postgres.com/features/pooling
+// Table should be created using create_tables.sql feeded by docker-compose
 app.post("/init", (requst, response) => {
+    // pg doc: https://node-postgres.com/features/pooling
     const pool = new Pool(postgres_credentials);
 
     pool.query("CREATE TABLE IF NOT EXISTS users(uid VARCHAR(256) PRIMARY KEY, name VARCHAR(32))", [], (err, result) => {
