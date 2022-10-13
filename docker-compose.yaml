@@ -1,0 +1,45 @@
+# Docs: https://geshan.com.np/blog/2021/12/docker-postgres/
+version: '3.8'
+services:
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    ports:
+      - 3000:3000
+    working_dir: /app
+    volumes:
+      - frontend:/app/
+      - /app/node_modules
+    depends_on:
+      - backend
+      - postgres
+  backend:
+    container_name: backend
+    build: ./backend
+    ports:
+      - 8080:8080
+    working_dir: /app
+    volumes:
+      - backend:/app/
+      - /app/node_modules
+    depends_on:
+      - postgres
+  postgres:
+    container_name: postgres
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+volumes:
+  frontend:
+    driver: local
+  backend:
+    driver: local
+  postgres:
+    driver: local
+  
