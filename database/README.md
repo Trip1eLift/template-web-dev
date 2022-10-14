@@ -14,3 +14,7 @@ Stands up postgres database using docker.
 ### `docker-compose up --detach`
 
 Stands up postgres database container in the background.
+
+### `docker-compose down -v`
+
+Shuts down postgres database.

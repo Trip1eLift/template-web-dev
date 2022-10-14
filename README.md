@@ -13,21 +13,26 @@ Hardware assisted virtualization might need to be enabled in BIOS for windows ma
 
 The following commands are to be run in the root directory of the project.
 
-### `docker-compose up`
+### `make start`
 
 Runs the app in the terminal.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### `docker-compose up --detach
+### `make start-background`
 
 Runs the app in the background.\
 Open docker desktop app to monitor the processes.
 
-### `docker system prune -a && docker volume prune`
+### `make down`
 
-Cleans up docker completely including containers, images, and volumns.\
+Shuts down the app for a fresh restart.\
+A refresh is required to reflect the latest code change in docker-compose. Launching services seperately is usually prefered for development.
+
+### `make cleanse`
+
+Cleans up docker completely including all containers, images, and volumns.\
 The container processes have to be stopped before running this command.\
-A complete refresh is required to reflect the latest code change in docker-compose. Launching services seperately is usually prefered for development.
+
 
 ## Launch 3 layers seperately
 
