@@ -107,6 +107,7 @@ function errorLogger(request, response, next) {
 app.use(errorLogger);
 
 const server = app.listen(port, () => {
+    console.log("3");
     console.log("Listening on port:", port);
 })
 
