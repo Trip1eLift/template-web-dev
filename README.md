@@ -26,6 +26,7 @@ Open docker desktop app to monitor the processes.
 ### `docker system prune -a && docker volume prune`
 
 Cleans up docker completely including containers, images, and volumns.\
+The container processes have to be stopped before running this command.\
 A complete refresh is required to reflect the latest code change in docker-compose. Launching services seperately is usually prefered for development.
 
 ## Launch 3 layers seperately
