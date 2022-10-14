@@ -1,4 +1,3 @@
-# Docs: https://geshan.com.np/blog/2021/12/docker-postgres/ -> might have a way to run seed.sql
 version: '3.8'
 services:
   frontend:
