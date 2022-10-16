@@ -1,5 +1,7 @@
 FROM node:18-alpine3.15
 
+ENV WATCHPACK_POLLING=true
+
 RUN npm install -g serve
 
 WORKDIR /app

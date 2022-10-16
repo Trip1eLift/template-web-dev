@@ -6,6 +6,8 @@ ENV DB_HOST=localhost
 ENV DB_PASS=postgres
 ENV DB_PORT=5432
 
+RUN npm install -g nodemon
+
 WORKDIR /app
 
 COPY package.json .
@@ -16,4 +18,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["node", "index.js"]
+CMD [ "node", "index.js" ]

@@ -3,11 +3,19 @@ a template for full stack web development.
 
 ## Prerequisites
 
+1. docker
+
+Hardware assisted virtualization might need to be enabled in BIOS for windows machine.
+
 1. node with npm
+
 The project is built using node v18.10.0; however, a relatively new version of node should work.
 
-2. docker
-Hardware assisted virtualization might need to be enabled in BIOS for windows machine. 
+3. make
+
+You only need to do install make if you're on a windows machine and your machine does not come with make.\
+Install choco first by: https://chocolatey.org/install\
+Then run `choco install make` using admin permission.
 
 ## Launch all 3 layers spontaneously
 

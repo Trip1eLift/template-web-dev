@@ -9,9 +9,15 @@ services:
     volumes:
       - ./frontend:/app/
       - /app/node_modules
+      #- /app/build
     depends_on:
       - backend
       - postgres
+    # override env
+    environment:
+      WATCHPACK_POLLING: "true"
+    # override cmd
+    command: [ "npm", "start" ]
   backend:
     container_name: backend
     build: ./backend
@@ -25,11 +31,14 @@ services:
       - postgres
     links:
       - postgres
+    # override env
     environment:
       - DB_USER=postgres
       - DB_HOST=postgres # container name of database (docker-compose networking)
       - DB_PASS=postgres
       - DB_PORT=5432
+    # override cmd
+    command: [ "npx", "nodemon", "index.js", "-L" ]
   postgres:
     container_name: postgres
     image: postgres:14.1-alpine
