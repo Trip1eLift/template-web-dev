@@ -7,15 +7,16 @@ a template for full stack web development.
 
 Hardware assisted virtualization might need to be enabled in BIOS for windows machine.
 
-1. node with npm
+2. make
 
-The project is built using node v18.10.0; however, a relatively new version of node should work.
-
-3. make
-
-You only need to do install make if you're on a windows machine and your machine does not come with make.\
-Install choco first by: https://chocolatey.org/install\
+You only need to install make if you're on a windows machine and your machine does not come with make. This is optional since you can run the instructions of makefile in terminal directly.\
+Instruction for choco installation: https://chocolatey.org/install\
 Then run `choco install make` using admin permission.
+
+3. node with npm
+
+This is optional since node can be run in docker.\
+The project is built using node v18.10.0; however, a relatively new version of node should work.
 
 ## Launch all 3 layers spontaneously
 
@@ -43,7 +44,7 @@ The container processes have to be stopped before running this command.\
 
 ## Launch 3 layers seperately
 
-Launching layers individually is recommanded during development. Each layer may occupy a terminal process if detach option is not used.
+Each layer may occupy a terminal process if detach option is not used.
 
 ### `make start-database`
 
