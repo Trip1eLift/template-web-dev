@@ -29,8 +29,6 @@ services:
       - /app/node_modules
     depends_on:
       - postgres
-    links:
-      - postgres
     # override env
     environment:
       - DB_USER=postgres
